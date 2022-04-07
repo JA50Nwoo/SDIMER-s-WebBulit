@@ -57,10 +57,11 @@
 </html>
  
 <?php
-	$host='xdm72191586.my3w.com';
-	$username='xdm72191586';
-	$password='Hdj13752854072';
-	$dbname='xdm72191586_db';
+       //这里要填写关于数据库信息（此处没填）
+	$host='';
+	$username='';
+	$password='';
+	$dbname='';
 	define('NEW_PATH_photo','images/');
 	define('NEW_PATH_artical','artical/');
    if(isset($_GET['submit1'])){
