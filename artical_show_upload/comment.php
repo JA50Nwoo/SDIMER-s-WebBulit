@@ -35,7 +35,11 @@
 		<br/>
 		<br/>
 		<?php
-            $conn = mysqli_connect('localhost','root','','prototype_comment');//连接到数据库
+			$host='xdm72191586.my3w.com';
+			$username='xdm72191586';
+			$password='Hdj13752854072';
+			$dbname='xdm72191586_db';
+			$conn = mysqli_connect($host,$username,$password,$dbname);//连接到数据库
 			$query = "SELECT * FROM comment";//查询comment这个表
 			$result = mysqli_query($conn,$query);//结果给$result
 			$comments = mysqli_fetch_all($result,MYSQLI_ASSOC);//将所有result行取出来，并按照一定规则排序
@@ -51,12 +55,11 @@
 </html>
 <?php
 	if(isset($_POST['submit'])){
-		//
 		$artical_number='4';
 		$content=$_POST['comment'];
 		$comment_time=date("Y-m-d");//date("Y-m-d H:i:s")显示时间
 		if(!empty($artical_number) && !empty($content)&&!empty($comment_time)){
-			$conn = mysqli_connect('localhost','root','','prototype_comment');//连接到数据库
+			$conn = mysqli_connect($host,$username,$password,$dbname);//连接到数据库
 			$query = "INSERT INTO comment VALUES(0,'$artical_number','$content','$comment_time')";//数据库中向comment表中插入信息
 			mysqli_query($conn,$query);//操作数据库
 		}

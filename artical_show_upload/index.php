@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<p1>h1llo</p1>
-		<form  action="index.php" enctype="multipart/form-data" method="POST">  
+		<form  enctype="multipart/form-data" method="POST">  
 			<label for="name">文章标题：</label>
 			<input type="text" id="name" name="title" />
 			<br/>
@@ -42,13 +42,16 @@
 			<label for="name">上传文章：</label>
 			<input type="file" id="avaPdf" name="artical" />
 			<br/>
-			<input type="submit" value="提交" name="submit" />
-			<input type="reset" value="重置" name="reset" />
+			<input type="submit" value="提交" name="submitartical" />
+			<input type="submit" value="重置" name="reset" />
         </form>
 		<form method="get">
 			<input  type="submit"  value="类型1" name="submit1"/>
 			<input  type="submit"  value="类型2" name="submit2"/>
 			<input  type="submit"  value="类型3" name="submit3"/>
+			
+		</form>
+		<form action="comment.php">
 			<input  type="submit"  value="评论区" name="comment"/>
 		</form>
 		<br/>
@@ -64,6 +67,7 @@
 	$username='xdm72191586';
 	$password='Hdj13752854072';
 	$dbname='xdm72191586_db';
+	
    if(isset($_GET['submit1'])){
 	 //连接到数据库
 	 $conn = mysqli_connect($host,$username,$password,$dbname);
@@ -125,14 +129,9 @@
 			}
 		}
 	}
-
-	if(isset($_GET['comment'])){
-		header('Location: comment.php');
-
-	}
    //在当前php文件所在目录下,新建一个images文件夹,用于专门存放上传的图片
   
-   if(isset($_POST['submit'])){
+   if(isset($_POST['submitartical'])){
 	   $head="'";
 	   $title = $head.$_POST['title'].$head; //获取文章标题和类型
 	   $type = $_POST['type'];
