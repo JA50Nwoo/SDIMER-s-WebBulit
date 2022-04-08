@@ -65,7 +65,7 @@
 	define('NEW_PATH_artical','artical/');
 	$host='xdm72191586.my3w.com';
 	$username='xdm72191586';
-	$password='Hdj13752854072';
+	$password='';
 	$dbname='xdm72191586_db';
 	
    if(isset($_GET['submit1'])){
