@@ -57,13 +57,9 @@
 </html>
  
 <?php
-       //这里要填写关于数据库信息（此处没填）
-	$host='';
-	$username='';
-	$password='';
-	$dbname='';
 	define('NEW_PATH_photo','images/');
 	define('NEW_PATH_artical','artical/');
+	include('databaselink.php');
    if(isset($_GET['submit1'])){
 	 //连接到数据库
 	 $conn = mysqli_connect($host,$username,$password,$dbname);
