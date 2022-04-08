@@ -37,7 +37,7 @@
 		<?php
 			$host='xdm72191586.my3w.com';
 			$username='xdm72191586';
-			$password='Hdj13752854072';
+			$password='';
 			$dbname='xdm72191586_db';
 			$conn = mysqli_connect($host,$username,$password,$dbname);//连接到数据库
 			$query = "SELECT * FROM comment";//查询comment这个表
