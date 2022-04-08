@@ -49,6 +49,7 @@
 			<input  type="submit"  value="类型1" name="submit1"/>
 			<input  type="submit"  value="类型2" name="submit2"/>
 			<input  type="submit"  value="类型3" name="submit3"/>
+			<input  type="submit"  value="评论区" name="comment"/>
 		</form>
 		<br/>
 		<br/>
@@ -59,7 +60,10 @@
 <?php
 	define('NEW_PATH_photo','images/');
 	define('NEW_PATH_artical','artical/');
-	include('databaselink.php');
+	$host='xdm72191586.my3w.com';
+	$username='xdm72191586';
+	$password='Hdj13752854072';
+	$dbname='xdm72191586_db';
    if(isset($_GET['submit1'])){
 	 //连接到数据库
 	 $conn = mysqli_connect($host,$username,$password,$dbname);
@@ -73,10 +77,10 @@
 			echo '<tr><td>';
 			$target_artical = NEW_PATH_artical.$u['artical_link'];
 			$title2=$u['artical_title'];
-			echo "<a href='{$target_artical}' title=''>$title2</a>";
+			echo "<a href='{$target_artical}' title=''>$title2</a>";//将超链接显示出来
 			echo"<br/>";
 			$target_picture = NEW_PATH_photo.$u['artical_picture'];
-			echo "<img src='{$target_picture}' />";
+			echo "<img src='{$target_picture}' />";//将文章封面显示出来
 			echo"<br/>";
 		 }
 	 }
@@ -120,6 +124,11 @@
 			   echo"<br/>";
 			}
 		}
+	}
+
+	if(isset($_GET['comment'])){
+		header('Location: comment.php');
+
 	}
    //在当前php文件所在目录下,新建一个images文件夹,用于专门存放上传的图片
   
