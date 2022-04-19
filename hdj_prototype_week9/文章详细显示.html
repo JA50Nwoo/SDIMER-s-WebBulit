@@ -79,16 +79,17 @@
   <div class="leftcolumn">  <!--显示文章-->
     <div class="card">
       <h2><?php echo $showing_artical['artical_title'];?></h2>
-      <h5>2022 年 4 月 7日</h5>
+      <h5><?php echo $showing_artical['upload_time'];?></h5>
       <div class="fakeimg" style="height:auto;word-wrap: break-word;"><?php echo $showing_artical['artical_abstract'];?></div>
       <p>一些文本...</p>
       <p class="content">
-        <embed src="artical/<?php echo $showing_artical['artical_pdf'];?>" style=" width: 100%;height: 500px;" hidden="ture" />
+        <embed src="artical/<?php echo $showing_artical['artical_pdf'];?>" style=" width: 1000px;height: 1000px;" hidden="ture" />
       </p>
       <?php
         if(isset($_POST['btn_like'])){
+          $uid=$showing_artical['uid'];
           $conn = mysqli_connect('localhost','root','','prototype_week9');
-          $query ="UPDATE artical SET like_number=like_number+1 ";
+          $query ="UPDATE artical SET like_number=like_number+1 WHERE uid=$uid";
           mysqli_query($conn,$query);
         }
         if(isset($_POST['comment_btn'])){
