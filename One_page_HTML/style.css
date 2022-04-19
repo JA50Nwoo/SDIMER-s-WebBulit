@@ -19,11 +19,13 @@ nav{
     align-items: center;
 }
 nav img{
-    width: 125px;
+    width: 150px;
 }
 .nav-links{
     flex: 1;
     text-align: right;
+    /* font-size: 5px; */
+    /* I have tried to change the font-size in father box to make icons visible but failed */
 }
 .nav-links ul li {
     list-style: none;
@@ -37,7 +39,7 @@ nav img{
     font-size: 13px;
 }
 .nav-links ul li::after{
-    content: "";
+    content: '';
     width: 0%;
     height:1px;
     background: #f44336;
@@ -80,8 +82,14 @@ nav img{
     border:1px solid #f44336;
     background: #f44336;
     transition: 1s;
+    color: #fff;
 }
-@media(max-width:700px){
+/* nav .fa{
+    display: none;
+} 
+*/
+
+/* @media(max-width: 700px){
     .text-box h1{
         font-size: 20px;
     }
@@ -91,11 +99,35 @@ nav img{
     .nav-links{
         position:absolute;
         background: #f44336;
-        height: 100vh;
+        height: 150vh;
         width: 200px;
-        top:0;
+        top: 0;
         right: 0;
         text-align: left;
         z-index: 2;
     }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 5px;
+    }
+} */
+/* SDIM网站暂时不需要在移动端显示，因此@media这一部分可以暂时不做；2 icons 也可以暂时不做。卡了我整整两天做不出来，TMD */
+.Introduction_work{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top:100px ;
+}
+h1{
+    font-size: 36px;
+    font-weight: 700;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
 }
