@@ -4,42 +4,58 @@
     font-family: 'ZCOOL XiaoWei', serif;
 }
 .header{
-    min-height: 100vh;  
+    /* min-height: 100vh;   */
     /* vh stands for viewport height */
     width: 100%;
+    height: 100vh;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(source/space_earth.jpg);
     background-size: cover ;
     background-position: center;
-    position: relative;
+    position: relative; /* Never annotate it! It's connected to the nav-bar z-index attribute to let the nav bar appear above the background picture */
 }
 nav{
-    display: flex; /* Create a flex container and its default value is row  */
-    padding: 2% 6%; /* 第一个值是上边和下边的内边距，第二个值是左边右边的内边距*/
-    justify-content: space-between;
-    align-items: center;
+    /* display: flex; Create a flex container and its default value is row  *//* Change*/
+    width: 100%;
+    padding: 0; /* 第一个值是上边和下边的内边距，第二个值是左边右边的内边距*/
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    text-align: center;
+    /* position: relative; */
+    z-index: 1;
 }
-nav img{
-    width: 150px;
+.Page_logo{
+    width: 350px;
+    margin: 17px 0 30px;
+    cursor: pointer;
 }
-.nav-links{
+/* 
+nav{
     flex: 1;
     text-align: right;
     /* font-size: 5px; */
-    /* I have tried to change the font-size in father box to make icons visible but failed */
+    /* I have tried to change the font-size in father box to make icons visible but failed 
+} Change the arrangement*/
+
+nav ul{
+    background: #000;
+    width: 100%;
+    margin-top: 1px;
 }
-.nav-links ul li {
+
+nav ul li {
     list-style: none;
+    margin: 20px 30px;
     display: inline-block;
-    padding: 8px 12px;
-    position: relative;
+    /* padding: 8px 12px; */
+    /* position: relative; */
 }
-.nav-links ul li a{
+nav ul li a{
     color: #fff;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 17px;
 }
-.nav-links ul li::after{
-    content: '';
+nav ul li::after{
+    content: ''; /* 一定不要注释这一句，after effect 是仰赖空content来展示效果的*/
     width: 0%;
     height:1px;
     background: #f44336;
@@ -47,9 +63,25 @@ nav img{
     margin: auto;
     transition: 0.5s;
 }
-.nav-links ul li:hover::after{
+nav ul li:hover::after{
     width: 100%;
 }
+
+nav.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding:0px 8%;
+    background: #000;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 1s ;
+}
+nav.sticky ul{
+    width: auto;
+}
+
 .text-box{
     width: 90%;
     color: #fff;
@@ -93,10 +125,10 @@ nav img{
     .text-box h1{
         font-size: 20px;
     }
-    .nav-links ul li{
+    nav ul li{
         display: block;
     }
-    .nav-links{
+    nav{
         position:absolute;
         background: #f44336;
         height: 150vh;
