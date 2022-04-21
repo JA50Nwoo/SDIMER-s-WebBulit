@@ -57,6 +57,7 @@
          <?php }?>
   </form>
 </div>
+      
       <?php if(isset($_GET['fenqu'])){ //以下是为了读取当前分区id并在数据库中找出对应的标签?> 
         <?php
           $conn = mysqli_connect('localhost','root','','prototype_week9');//下面是为了获得当前分区的id
@@ -94,12 +95,13 @@
                   <input type="hidden" value="<?php echo $current_id?>" name="daqu_id"/>
                   <input type="hidden" value="<?php echo $label['uid']?>" name="biaoqian_id"/>
                   <input type="submit" value="<?php echo $label['label_name']?>" name="biaoqian" class="daquanniu"/>    
-                  <ul>
-                      <li><a href="#">热门文章</a></li>
-                      <li><a href="#">热门文章</a></li>
-                      <li><a href="#">热门文章</a></li>
-                      <li><a href="#">热门文章</a></li>
-                  </ul>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                 </div>
               </div>
             </form>
@@ -119,7 +121,7 @@
           </div>
           <?php 
           if(isset($_POST['lattest_btn'])){
-            $sql = 'SELECT * FROM artical ORDER BY upload_time DESC';
+            $sql = 'SELECT * FROM artical ORDER BY uid DESC';
           }
           else if(isset($_POST['likest_btn'])){
             $sql = 'SELECT * FROM artical ORDER BY like_number DESC';
