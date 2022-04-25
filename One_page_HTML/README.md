@@ -10,4 +10,5 @@ is the example of the web design for Sustech-SDIM. It is a style demonstration. 
 The other html files:
 + header.php
 + footer.php
++ index.php
 + 
