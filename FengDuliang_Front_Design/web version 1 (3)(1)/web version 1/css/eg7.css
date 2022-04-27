@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+  }
+   
+  body {
+    font-family: Arial;
+    /* padding: 10px; */
+    margin: 0;
+    background: #f1f1f1;
+  }
+   
+  /* 头部标题 */
+  .header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+  }
+   
+  .header h1 {
+    font-size: 50px;
+  }
+   
+  /* 导航条 */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+
+  .secondnav{
+    overflow: hidden;
+    background-color: #aaa;
+    position: relative;
+  }
+
+  /* 导航条链接 */
+  .normala {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 28px 32px;
+    text-decoration: none;
+    text-size-adjust: 64px;
+  }
+
+  .normala2{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 28px 32px;
+    text-decoration: none;
+    text-size-adjust: 64px;
+  }
+
+  .sdimlogo{
+    float: left;
+    display: block;
+    width: 96px;
+    height: 76.8px;
+  }
+
+  .usericon{
+    display: block;
+    height: 76.8px;
+}
+  .icon {
+    height: 76.8px;
+    width: 76.8px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .usericoni{
+    display: block;
+    height: 76.8px;
+    float: left;
+  }
+
+  .Search{
+    display: inline;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+   
+  /* 链接颜色修改 */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .secondnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .secondnav{
+    overflow: hidden;
+    background-color: #aaa;
+    position: relative;
+  }
+
+  .thirdnav1{
+    display: inline-block;
+    overflow: hidden;
+    background-color: #aaa;
+    /* position: relative; */
+  }
+
+  .thirdnav2{
+    display: inline-block;
+    margin: 0;
+    /* position: absolute; */
+    top: 50%;
+    float: right;
+    background-color: #aaa;
+    /* position: relative; */
+  }
+
+  .breadcrumb-trail {
+    display: inline-block;
+    width: 1030px;
+    color: #535353;
+    font-size: 11px;
+    margin: 20px 20px;
+    letter-spacing: 0.1em;
+}
+   
+  /* 创建两列 */
+  /* Left column */
+  .leftcolumn {   
+    width: 75%;
+    margin: auto;
+    overflow: auto;
+  } 
+
+  .content{
+    padding-bottom: 20px;
+    border-bottom-style:dotted;
+  }
+
+  ul,a{
+    list-style: none;
+    text-decoration: none;
+}
+
+  .ICON{
+    display: inline;
+    float: left;
+  }
+   
+  /* 图像部分 */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* 文章卡片效果 */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .card2{
+    background-color: white;
+    padding: 20px;
+  }
+
+  .xg{
+      float: right;
+  }
+  /* 列后面清除浮动 */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+   
+  /* 底部 */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+   
+  /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+   
+  /* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
