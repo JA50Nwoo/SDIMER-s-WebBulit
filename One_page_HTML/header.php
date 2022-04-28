@@ -73,11 +73,11 @@
         <section class="header">
             <nav id="navbar">  <!--This stands for navigation links -->
                 <a href="Page.html"><img src="source/Sustech&SDIM_logo.png" alt="南方科技大学系统设计与智能制造学院" class="Page_logo"></a>
-                /* <!-- <div class="nav-links"> -->
+                <!-- <div class="nav-links"> -->
                     <!-- <i class="fa-solid fa-rectangle-xmark"></i> -->
                     <!-- <i class="fa-solid fa-circle-xmark" style="font-size: 10px"></i> -->
                     <!-- <i class="fa fa-times"></i> -->
-                    <!-- 不做icons --> */
+                    <!-- 不做icons --> 
                     <ul id="menu">
                         <li><a href="">主页</a></li>
                         <li><a href="Sorting_Page.html">分类</a></li>
@@ -85,7 +85,7 @@
                         <li><a href="">管理</a></li>
                         <li><a href="Contact.html">关于</a></li>
                     </ul>
-                /* <!-- </div> -->
+                 <!-- </div> -->
                 <!-- <i class="fa-solid fa-bars" style="font-size: 10px"></i> -->
-                <!-- <i class="fa fa-bars" style="font-size: 22px"></i> --> */
+                <!-- <i class="fa fa-bars" style="font-size: 22px"></i> --> 
             </nav>
