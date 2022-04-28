@@ -1,3 +1,8 @@
+<?php
+  echo phpinfo();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
