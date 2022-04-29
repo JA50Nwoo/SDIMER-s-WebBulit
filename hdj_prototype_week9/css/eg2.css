@@ -3,10 +3,10 @@
   }
    
   body {
-      font-family: Arial;
-      padding: 10px;
-      background: #f1f1f1;
-      font-size: 18px;
+    font-family: Arial;
+    /* padding: 10px; */
+    margin: 0;
+    background: #f1f1f1;
   }
    
   /* 头部标题 */
@@ -24,16 +24,61 @@
   .topnav {
     overflow: hidden;
     background-color: #333;
+    position: relative;
   }
-   
+
+  .secondnav{
+    overflow: hidden;
+    background-color: #aaa;
+    position: relative;
+  }
+
   /* 导航条链接 */
-  .topnav a {
+  .normala {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 28px 32px;
     text-decoration: none;
+    text-size-adjust: 64px;
+  }
+
+  .normala2{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 28px 32px;
+    text-decoration: none;
+    text-size-adjust: 64px;
+  }
+
+  .sdimlogo{
+    float: left;
+    display: block;
+    width: 96px;
+    height: 76.8px;
+  }
+
+  .usericon{
+    display: block;
+    height: 76.8px;
+}
+  .icon {
+    height: 76.8px;
+    width: 76.8px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .Search{
+    display: inline;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
    
   /* 链接颜色修改 */
@@ -41,20 +86,52 @@
     background-color: #ddd;
     color: black;
   }
+
+  .secondnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .breadcrumb-trail {
+    display: inline-block;
+    width: 1030px;
+    color: #535353;
+    font-size: 11px;
+    margin: 20px 20px;
+    letter-spacing: 0.1em;
+}
    
   /* 创建两列 */
   /* Left column */
   .leftcolumn {   
     float: left;
     width: 75%;
+    margin-left: 18px;
+    overflow: auto;
+  } 
+
+  .content{
+    padding-bottom: 20px;
+    border-bottom-style:dotted;
   }
-   
+
+  ul,a{
+    list-style: none;
+    text-decoration: none;
+}
+
   /* 右侧栏 */
   .rightcolumn {
     float: left;
-    width: 25%;
+    width: 20%;
     background-color: #f1f1f1;
     padding-left: 20px;
+    margin-left: 8px;
+  }
+
+  .ICON{
+    display: inline;
+    float: left;
   }
    
   /* 图像部分 */
@@ -63,19 +140,13 @@
     width: 100%;
     padding: 20px;
   }
-   
+
   /* 文章卡片效果 */
   .card {
     background-color: white;
-    padding: 50px;
+    padding: 20px;
     margin-top: 20px;
   }
-  /* 错误提示信息 */
-  .errors{
-    background-color: #aaa;
-    color:brown;
-  }
-   
   /* 列后面清除浮动 */
   .row:after {
     content: "";
@@ -89,6 +160,10 @@
     text-align: center;
     background: #ddd;
     margin-top: 20px;
+  }
+  .daquanniu{
+    width:143px; height:40px;
+    border-style: none;
   }
    
   /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
