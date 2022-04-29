@@ -1,6 +1,10 @@
 # SDIMER-s-WebBulit
 SDM223 project
 项目程序库
+
+
+#jason4.29upload
+
 prototype2_week11Jason.sql是存储用户的数据库
 prototype_week11Jason.sql是文章数据库（wk9的更改版）
 messagedemo里面有一些早期作品，可以用的主要有login1.1（登录界面，可以实现数据已有的用户登录，jason7是管理员账号，密码是77777777，其他都是普通用户，此界面也可以点击注册）
