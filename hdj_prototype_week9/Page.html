@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SDIM WEB PAGE - Dare to dream!</title>
+        <link rel="stylesheet" href="style.css  ">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="index.js"></script>
+        <!-- Use Google font to include characterized font in web-->
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
+        <!-- Use CDN to accelerate your web page service. The link below will remind you what is CDN.-->
+        <!--https://www.akamai.com/zh/our-thinking/cdn/what-is-a-cdn-->
+        <!--I should remind you that CDN may be distribueted based on your IP location. Be careful if you are using proxy!-->
+    </head>
+    <body>
+        <section id="qaq" class="header">
+            <nav>  <!--This stands for navigation links -->
+                <a href="Page.html"><img src="source/LOGO-竖向中文+英文.png"></a>
+                <div class="nav-links">
+                    <!-- <i class="fa-solid fa-rectangle-xmark"></i> -->
+                    <!-- <i class="fa-solid fa-circle-xmark" style="font-size: 10px"></i> -->
+                    <!-- <i class="fa fa-times"></i> -->
+                    <!-- 不做icons -->
+                    <ul>
+                        <li><a class="usericon" href=""><img class="icon" src="source/space_earth.jpg" alt="qwq"></a></li>
+                        <li><a href="">关注</a></li>
+                        <li><a href="">收藏</a></li>
+                        <li><a href="在线上传2.html">发布</a></li>
+                        <li><a href="">管理</a></li>
+                        <li><a href="Contact.html">关于</a></li>
+                    </ul>
+                </div>
+                <!-- <i class="fa-solid fa-bars" style="font-size: 10px"></i> -->
+                <!-- <i class="fa fa-bars" style="font-size: 22px"></i> -->
+            </nav>
+
+                <div class="text-box">
+                    <h1>南方科技大学 创园一栋</h1>
+                    <br>
+                    <p>世界创新的风口，中国创新的引擎，深圳创新的中心</p>
+                    <!-- <a href="" class = "click-btn" 点击发现一个新世界 -->
+                    <!-- <a href="#qwq" class="click-btn">点击发现一个新世界</a> -->
+                </div>
+                <div class="btn-container">
+                    <span class="strip-1"></span>
+                    <span class="strip-2"></span>
+                    <span class="strip-3"></span>
+                    <span class="strip-4"></span>
+                    <span class="strip-5"></span>
+                    <span class="strip-6"></span>
+                    <span class="strip-7"></span>
+                    <a href="#qwq">
+                        <button class="btn">
+                          GO SDIMER'S!
+                        </button>
+                    </a>
+                </div>
+        </section>
+         <!-- HTML中Section表示一个独立部分。参考 https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section  -->
+
+        <section id="qwq" class="Introduction_work">
+            <h1>我们正在探索有趣的事情！</h1>
+            <div class="secondnav">
+                <form action="分类界面.html" method="get">
+                  <?php
+                    //这一部分的目的就是获取数据库中的“分类”的名称并显示在导航栏下方
+                       //连接到数据库
+                       $conn = mysqli_connect('localhost','root','','prototype_week9');
+                      //检查连接是否成功
+                     //向数据表orders发起一个检索，获取所有下单信息
+                    $sql = 'SELECT * FROM artical_classification';
+                    //执行插入的查询语句
+                    $result = mysqli_query($conn,$sql); 
+                    //获取记录,并保存为数组
+                    $classification = mysqli_fetch_all($result,MYSQLI_ASSOC);?>
+                    <?php foreach($classification as $classification){ ?>
+                      <input type="submit" class="normala2" value="<?php echo $classification['classification_name'];?>"
+                       name="fenqu"> 
+                       <!--当点击导航栏下方分区按钮时，表单会传递该分区的id告诉浏览器该显示什么-->
+                       <?php }?>
+                </form>
+              </div>
+              
+            <!-- <p>人民胜利今何在？满路新贵满目衰。核弹高置昆仑巅，摧尽腐朽方释怀。</p> -->
+            <div class='row_content'>
+                <div style="background-color: red;" class="left">
+                    <div class="lunbo">
+                        <div class="content">
+                        <ul id="item">
+                            <li class="item">
+                                <a href="#"><img src="source/pic-1.jpg" ></a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><img src="source/pic-2.jpg" ></a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><img src="source/pic-3.jpg" ></a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><img src="source/pic-4.jpg" ></a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><img src="source/pic-5.jpg" ></a>
+                            </li>
+                        </ul>
+                        <div id="btn-left"><</div>
+                        <div id="btn-right">></div>
+                        <ul id="circle">
+                            
+                            <li class="circle"></li>
+                            <li class="circle"></li>
+                            <li class="circle"></li>
+                            <li class="circle"></li>
+                            <li class="circle"></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="#qaq">
+                        <div class="seperate-box">
+
+                            <h3>远景</h3>
+                            <p>西风烈，
+                                长空雁叫霜晨月。
+                                霜晨月，
+                                马蹄声碎，
+                                喇叭声咽。
+                                雄关漫道真如铁，
+                                而今迈步从头越。
+                                从头越，
+                                苍山如海，
+                                残阳如血。
+                            </p>
+                        </div>
+                    </a>
+                    
+                    <a href="#qaq">
+                        <div class="seperate-box">
+                        
+                            <h3>目标</h3>
+                            <p>挥手从兹去。
+                                更那堪凄然相向，
+                                苦情重诉。
+                                眼角眉梢都似恨，
+                                热泪欲零还住。
+                                知误会前番书语。
+                                过眼滔滔云共雾，
+                                算人间知己吾和汝。
+                                人有病，天知否？
+                                今朝霜重东门路，
+                                照横塘半天残月，
+                                凄清如许。
+                                汽笛一声肠已断，
+                                从此天涯孤旅。
+                                凭割断愁丝恨缕。
+                                要似昆仑崩绝壁，
+                                又恰象台风扫寰宇。
+                                重比翼，和云翥。
+                            </p>
+                        </div>
+                    </a>
+                    
+                    <a href="#qaq">
+                        <div class="seperate-box">
+                        
+                            <h3>服务对象</h3>
+                            <p>我失骄杨君失柳，
+                                杨柳轻飏直上重霄九。
+                                问讯吴刚何所有，
+                                吴刚捧出桂花酒。
+                                寂寞嫦娥舒广袖，
+                                万里长空且为忠魂舞。
+                                忽报人间曾伏虎，
+                                泪飞顿作倾盆雨。
+                            </p>
+                        </div> 
+                    </a>
+                </div>
+            </div>
+
+            
+        </section>
+    </body>
+</html>

@@ -1,0 +1,241 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  place-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.container {
+  width: 350px;
+  height: 520px;
+  background: #ecf0f3;
+  padding: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  position: absolute;
+  /*居中显示*/
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: none;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  background-size: 160px;
+  background-position: -30px;
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #1da1f2;
+  letter-spacing: 1px;
+}
+
+/*输入部分*/
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+label,
+input{
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 14px;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 14px;
+  border-radius: 50px;
+  height: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.btn-container{
+  width: 177.91px;
+  margin: 20px auto;
+	position: relative;
+	overflow: hidden;
+	/* box-shadow: 0 1.5px 7.5px 0.5px gray; */
+	border-radius: 5px;
+	z-index:2;
+}
+
+.btn{
+	position: relative;
+	background-color: transparent;
+	padding:20px 40px;
+	font-size: 2rem;
+	font-family:"Eras Bold","Eras Bold itc","Eras Bold ITC",'Montserrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	border:none;
+	transition: 1s;
+	color: black;
+}
+
+.strip-1,.strip-2,.strip-3,.strip-4,.strip-5,.strip-6,.strip-7{
+	height: 250px;
+	width: 35px;
+	z-index: -1;
+	position: absolute;
+}
+
+.strip-1{
+	transition: 1s;
+	background-color: violet;
+	transform: rotate(-45deg) translate(-150px,0);
+}
+
+.strip-2{
+	transition: 1s;
+	top: -25px;
+	left: 10px;
+	background-color: rgb(124, 55, 124);
+	transform: rotate(-45deg) translate(-150px,15px);
+}
+.strip-3 {
+	transition: 1s;
+	top: -50px;
+	left: 20px;
+	background-color: blue;
+	transform: rotate(-45deg) translate(-150px , 30px);
+}
+
+.strip-4 {
+	transition: 1s;
+	top: -75px;
+	left: 30px;
+	background-color: green;
+	transform: rotate(-45deg) translate(-150px , 45px);
+}
+
+.strip-5 {
+	transition: 1s;
+	top: -100px;
+	left: 40px;
+	background-color: yellow;
+	transform: rotate(-45deg) translate(-150px , 60px);
+}
+
+.strip-6 {
+	transition: 1s;
+	top: -125px;
+	left: 50px;
+	background-color: orange;
+	transform: rotate(-45deg) translate(-150px , 75px);
+}
+
+.strip-7 {
+	transition: 1s;
+	top: -150px;
+	left: 60px;
+	background-color: red;
+	transform: rotate(-45deg) translate(-150px , 90px);
+}
+
+.btn:hover{
+	color:white;
+	cursor: pointer;
+}
+
+.btn::before{
+	content: '';
+	background-color: black;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:-1;
+	opacity:0;
+	transition: 1s;
+}
+
+.btn:hover::before{
+	opacity: 0.25;
+}
+
+.btn-container:hover .strip-1{
+	transform:rotate(-45deg) translate(40px,0px);
+}
+
+.btn-container:hover .strip-2 {
+	transform: rotate(-45deg) translate(45px , 15px);
+}
+
+.btn-container:hover .strip-3 {
+	transform: rotate(-45deg) translate(50px , 30px);
+}
+
+.btn-container:hover .strip-4 {
+	transform: rotate(-45deg) translate(55px , 45px);
+}
+
+.btn-container:hover .strip-5 {
+	transform: rotate(-45deg) translate(60px , 60px);
+}
+
+.btn-container:hover .strip-6 {
+	transform: rotate(-45deg) translate(65px , 75px);
+}
+
+.btn-container:hover .strip-7 {
+	transform: rotate(-45deg) translate(70px , 90px);
+}
+
+.line {
+  color: #1da1f2;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  margin-top: 15px;
+}
+
+#dot {
+  vertical-align: super;
+  font-weight: 600;
+}

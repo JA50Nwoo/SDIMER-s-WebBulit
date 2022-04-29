@@ -1,0 +1,189 @@
+*{
+    margin:0;
+    padding:0;  
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+.header{
+    /* min-height: 100vh;   */
+    /* vh stands for viewport height */
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(source/space_earth.jpg);
+    background-size: cover ;
+    background-position: center;
+    position: relative; /* Never annotate it! It's connected to the nav-bar z-index attribute to let the nav bar appear above the background picture */
+}
+nav{
+    /* display: flex; Create a flex container and its default value is row  *//* Change*/
+    width: 100%;
+    padding: 0; /* 第一个值是上边和下边的内边距，第二个值是左边右边的内边距*/
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    text-align: center;
+    /* position: relative; */
+    z-index: 1;
+}
+.Page_logo{
+    width: 350px;
+    margin: 17px 0 30px;
+    cursor: pointer;
+}
+/* 
+nav{
+    flex: 1;
+    text-align: right;
+    /* font-size: 5px; */
+    /* I have tried to change the font-size in father box to make icons visible but failed 
+} Change the arrangement*/
+
+nav ul{
+    background: #000;
+    width: 100%;
+    margin-top: 1px;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 20px 30px;
+    display: inline-block;
+    /* padding: 8px 12px; */
+    /* position: relative; */
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+}
+nav ul li::after{
+    content: ''; /* 一定不要注释这一句，after effect 是仰赖空content来展示效果的*/
+    width: 0%;
+    height:1px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+nav ul li:hover::after{
+    width: 100%;
+}
+
+nav.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding:0px 8%;
+    background: #000;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 1s ;
+}
+nav.sticky ul{
+    width: auto;
+}
+
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 63px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+.click-btn{
+    display: inline-block;
+    text-decoration: dashed;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.click-btn:hover{
+    border:1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+    color: #fff;
+}
+/* nav .fa{
+    display: none;
+} 
+*/
+
+/* @media(max-width: 700px){
+    .text-box h1{
+        font-size: 20px;
+    }
+    nav ul li{
+        display: block;
+    }
+    nav{
+        position:absolute;
+        background: #f44336;
+        height: 150vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 5px;
+    }
+} */
+/* SDIM网站暂时不需要在移动端显示，因此@media这一部分可以暂时不做；2 icons 也可以暂时不做。卡了我整整两天做不出来，TMD */
+.Introduction_work{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top:100px ;
+}
+h1{
+    font-size: 36px;
+    font-weight: 700;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+.row_content{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.seperate-box{
+    flex-basis: 33%;
+    /* background: #fff3f3; */
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 15px 10px 0px;
+    box-sizing: border-box;
+    transition: all 0.5s;
+    /*overflow: hidden; */  /* If you find the thing becomes bigger than the area it's in, then dis-annotate it. */
+}
+h3{
+    text-align: center;
+    font-weight: 550;
+    margin: 10px 0;
+}
+.seperate-box:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.06);
+}

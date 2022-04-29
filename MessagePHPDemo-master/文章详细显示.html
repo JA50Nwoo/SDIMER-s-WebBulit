@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我最爱白老师的课辣</title>
+<link rel="stylesheet" href="css/eg.css">
+<link rel="stylesheet" href="css/eg2.css">
+</head>
+<body>
+
+<!-- <div class="header">
+  <h1>我的网页</h1>
+  <p>重置浏览器大小查看效果。</p>
+</div> -->
+
+<div class="topnav">
+  <a href="#">
+        <img class="sdimlogo" src="images/LOGO.jpg" alt="sdim 的logo">
+  </a>
+  <a href="#" class="normala">分类</a>
+  <a href="#" class="normala">发布</a>
+  <a href="#" class="normala">管理</a>
+  <div class="Search">
+    <input type="text" class="search" placeholder="搜点啥吧">
+    <button>
+        <i>搜！</i>
+    </button>
+  </div>
+  <a href="#" class="normala" style="float:right">收藏</a>
+  <a href="#" class="normala" style="float:right">关注</a>
+  <a href="#" style="float:right" class="usericon">
+        <img class="icon" src="images/icon.jpg" />
+  </a>
+</div>
+<div class="secondnav">
+  <form action="分类界面.html" method="get">
+    <?php
+      //这一部分的目的就是获取数据库中的“分类”的名称并显示在导航栏下方
+         //连接到数据库
+         $conn = mysqli_connect('localhost','root','','prototype_week9');
+        //检查连接是否成功
+      if(!$conn){
+        echo '连接错误：'.mysqli_connect_error();
+       }
+       //向数据表orders发起一个检索，获取所有下单信息
+      $sql = 'SELECT * FROM artical_classification';
+      //执行插入的查询语句
+      $result = mysqli_query($conn,$sql); 
+      //获取记录,并保存为数组
+      $classification = mysqli_fetch_all($result,MYSQLI_ASSOC);?>
+      <?php foreach($classification as $classification){ ?>
+        <input type="submit" class="normala2" value="<?php echo $classification['classification_name'];?>"
+         name="fenqu"> 
+         <!--当点击导航栏下方分区按钮时，表单会传递该分区的id告诉浏览器该显示什么-->
+         <?php }?>
+  </form>
+</div>
+<?php
+  $current_artical_id=$_GET['current_artical_id'];
+  //连接到数据库
+  $conn = mysqli_connect('localhost','root','','prototype_week9');
+  //检查连接是否成功
+  if(!$conn){
+  echo '连接错误：'.mysqli_connect_error();
+  }
+  //向数据表orders发起一个检索，获取所有下单信息
+  $sql = 'SELECT * FROM artical';
+  //执行插入的查询语句
+  $result = mysqli_query($conn,$sql); 
+  //获取记录,并保存为数组
+  $current_artical = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  foreach($current_artical as $u){
+    if($u['uid']==$_GET['current_artical_id']){
+      $showing_artical=$u;
+    }
+  }
+?>
+<div class="row">
+  <div class="leftcolumn">  <!--显示文章-->
+    <div class="card">
+      <h2><?php echo $showing_artical['artical_title'];?></h2>
+      <h5><?php echo $showing_artical['upload_time'];?></h5>
+
+      <div class="fakeimg" style="height:auto;word-wrap: break-word;"><?php echo $showing_artical['artical_abstract'];?>
+      </div>
+      <p>一些文本...</p>
+
+
+      <p>
+
+        <embed src="artical/<?php echo $showing_artical['artical_pdf'];?>" style=" width: 1000px;height: 1000px;"  />
+        </p>
+      <div>
+        <form action="" method="post" >
+          <button type="submit" id="like_btn" name="btn_like" class="" > like </button>
+          <?php
+          if(isset($_POST['btn_like'])){
+              $uid=$showing_artical['uid'];
+            $conn = mysqli_connect('localhost','root','','prototype_week9');
+            $query ="UPDATE artical SET like_number=like_number+1 WHERE uid=$uid";
+            mysqli_query($conn,$query);
+          }
+          //每次单机点赞后，页面会刷新并重新显示数据库中点赞数
+          $conn = mysqli_connect('localhost','root','','prototype_week9');
+          $sql = 'SELECT * FROM artical';
+          $result = mysqli_query($conn,$sql); 
+          $artical = mysqli_fetch_all($result,MYSQLI_ASSOC);
+          foreach($artical as $artical){
+            if($artical['uid']==$showing_artical['uid']){
+              $showing_artical=$artical;
+            }
+          }
+        ?>
+        <div><?php echo $showing_artical['like_number'];//显示点赞数?></div>
+        </form>
+      </div>
+      <?php
+          if(isset($_POST['comment_btn'])){
+            $artical_number=$showing_artical['uid'];
+            $content=$_POST['comment'];
+            $comment_time=date("Y-m-d");  //date("Y-m-d H:i:s")显示时间
+            if(!empty($artical_number) && !empty($content)&&!empty($comment_time)){
+              $conn = mysqli_connect('localhost','root','','prototype_week9');
+              $query = "INSERT INTO comment VALUES(0,'$artical_number','$content','$comment_time')";//数据库中向comment表中插入信息
+              mysqli_query($conn,$query);//操作数据库
+            }
+        }
+      ?>
+      <form action="" method="post" name="comment_form">
+        <div class="replytext">
+          <input type="text" class="reply" placeholder="发表你的评论！" name="comment" autocomplete="off">
+          <input type="submit" button class="replybtt" name="comment_btn" >
+                <i>回！</i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <?php
+      $conn = mysqli_connect('localhost','root','','prototype_week9');
+      //检查连接是否成功
+      if(!$conn){
+        echo '连接错误：'.mysqli_connect_error();
+      }
+      //向数据表orders发起一个检索，获取所有下单信息
+      $sql = 'SELECT * FROM comment';
+      //执行插入的查询语句
+      $result = mysqli_query($conn,$sql); 
+      //获取记录,并保存为数组
+      $comment = mysqli_fetch_all($result,MYSQLI_ASSOC);
+      foreach($comment as $comment){
+        if($comment['artical_id']==$showing_artical['uid']){ ?>
+          <div class="card">
+            <div class="lou">
+              <h2>用户名</h2>
+              <?php echo $comment['comment_time']?></h5>
+            </div>
+            <div class="ICON2">
+              <a href="#" style="float:right" class="usericon">
+                  <img class="icon" src="images/icon.jpg" />
+              </a>
+            </div>
+            <p><?php echo $comment['content']; ?></p>
+          </div>
+      <?php }
+    } ?>
+    
+  </div>
+</div>
+
+<div class="footer">
+  <h2>底部区域</h2>
+</div>
+</body>
+</html>
