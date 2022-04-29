@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>管理网站文章</title>
+<link rel="stylesheet" href="css/eg6.css">
+</head>
+<body>
+
+  <?php
+  session_start();
+  header("Content-type: text/html; charset=utf-8");
+
+
+  // 从数据库取出数据
+  $servernameDB = "localhost";
+  $usernameDB = "root";
+  $passwordDB = "";
+  $nameDB = "MessageDB";
+
+  // 创建连接
+  $conn = new mysqli($servernameDB, $usernameDB, $passwordDB, $nameDB);
+  $sql = "SELECT id, date, content FROM messages";
+  $result = $conn->query($sql);
+
+
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      
+    }
+
+  }
+  ?>
+
+<div class="topnav">
+  <a href="#">
+        <img class="sdimlogo" src="images/LOGO.jpg" alt="sdim 的logo">
+  </a>
+  <a href="#" class="normala">分类</a>
+  <a href="#" class="normala">发布</a>
+  <a href="#" class="normala">管理</a>
+  <div class="Search">
+    <input type="text" class="search" placeholder="搜点啥吧">
+    <button>
+        <i>搜！</i>
+    </button>
+  </div>
+  <a href="#" class="normala" style="float:right">收藏</a>
+  <a href="#" class="normala" style="float:right">关注</a>
+  <a href="#" style="float:right" class="usericon">
+        <img class="icon" src="images/icon.jpg" />
+  </a>
+</div>
+
+<div class="secondnav">
+  <a href="#" class="normala2">文章管理</a>
+  <a href="#" class="normala2">用户管理</a>
+  <a href="#" class="normala2">风格管理</a>
+</div>
+
+<div class="breadcrumb-trail">
+    <!--这里是面包屑导航，样式在global里面-->
+    <a href="#">首页</a>
+    <a href="#">管理</a>
+    <a href="#">文章管理</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="secondnav">
+        <div class="thirdnav1"><h3>文章管理</h3></div>
+        <div class="thirdnav2">
+            <a href="#">分区选择</a>
+            <a href="#">所有文章</a>
+            <a href="#">点赞排序</a>
+        </div>  
+    </div>
+    <div class="card2">
+        <div class="usericoni">
+          <a href="#" style="float:right" class="usericon">
+              <img class="icon" src="images/icon.jpg" />
+        </a>
+        </div>
+        <a href="#"><h2>xxx</h2></a>
+        <form action="">
+          <button style="float:right" onclick="" name="unpassed">不通过</button>
+          <?php
+          $current_artical_id=$_GET['current_artical_id'];
+          //连接到数据库
+          $conn = mysqli_connect('localhost','root','','prototype_week9');
+          //检查连接是否成功
+          if(!$conn){
+          echo '连接错误：'.mysqli_connect_error();
+          }
+          //向数据表orders发起一个检索，获取所有下单信息
+          $sql = 'SELECT * FROM artical';
+          //执行插入的查询语句
+          $result = mysqli_query($conn,$sql); 
+          //获取记录,并保存为数组
+          $current_artical = mysqli_fetch_all($result,MYSQLI_ASSOC);
+          foreach($current_artical as $u){
+            if($u['uid']==$_GET['current_artical_id']){
+              $showing_artical=$u;}}
+          if(isset($_POST['unpassed'])){
+            $uid=$showing_artical['uid'];
+
+            mysqli_query($conn,"INSERT INTO passedarticle SELECT *  FROM article WHERE uid=$uid");
+            mysqli_query($conn,"DELETE FROM article WHERE uid=$uid");
+            }
+            
+            ?>
+          
+          <select class="not"> 
+            <option value="qaq">你是猪</option>
+            <option value="qwq">我是你爹</option>
+            <option value="qqq">不会发文章就不要发</option>
+            <option value="qrq">ppp</option>
+            <div class="usericoni">
+              <a href="#" style="float:left" class="usericon">
+                <img class="icon" src="images/<?php echo $artical['artical_cover'];?>" />
+              </a>
+              <br>
+            </div>
+            <input type="hidden" value="<?php echo $artical['uid'];?>" name="current_artical_id">
+            <input type="submit" value="<?php echo $artical['artical_title'];?>" name="current_artical">
+          
+          </select>
+          <button style="float:right" onclick="">通过</button>
+        </form>
+    </div>
+  </div>
+</div>
+ 
+<div class="footer">
+  <h2>底部区域</h2>
+</div>
+
+</body>
+</html>
